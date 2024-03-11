@@ -8,11 +8,11 @@ spec:
   project: default
   source:
     repoURL: https://github.com/pypeaday/argocd-helm.git
-    path: charts/root-app/
+    path: charts/root-app
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: root-app
   syncPolicy:
     automated:
-      selfHeal: false
+      selfHeal: true
