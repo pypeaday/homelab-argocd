@@ -15,4 +15,4 @@ spec:
     namespace: default
   syncPolicy:
     automated:
-      selfHeal: true
+      selfHeal: false
