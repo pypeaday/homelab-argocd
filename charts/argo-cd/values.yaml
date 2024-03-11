@@ -9,3 +9,5 @@ argo-cd:
   server:
     extraArgs:
       - --insecure
+  crds:
+    install: false
