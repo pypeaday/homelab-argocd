@@ -16,7 +16,8 @@ spec:
           enabled: false
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    # kubectl create namespace prometheus
+    namespace: prometheus
   syncPolicy:
     automated:
       prune: true
