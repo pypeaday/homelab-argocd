@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/openfaas/faas-netes.git
     path: chart/openafaas
-    targetRevision: HEAD
+    targetRevision: master
   destination:
     server: https://kubernetes.default.svc
     namespace: openfaas
