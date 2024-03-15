@@ -8,12 +8,12 @@ metadata:
 spec:
   destination:
     server: https://kubernetes.default.svc
+    namespace: openfaas-fn
   project: default
   source:
     # TODO: move this to another repo
     path: openfaas-functions
     repoURL: https://github.com/pypeaday/argocd-helm.git
-    namespace: openfaas-fn
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
