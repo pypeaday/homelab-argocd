@@ -21,6 +21,7 @@ After that we'll install the `root-app` to implement the `app-of-apps` model. De
 2. Once I figure that out I want to deploy openfaas as an argocd application, not sure if I should with a template via root-app app-of-apps model, or using terraform... I want to use tf so that I can start messing with terrakube
 3. I'm not sure where terraform fits into this without unnecessary abstraction and complexity for my homelab... will try to manage a few things with it to paly with terrakube
 4. I need to better document all this so that I can start migrating my homelab over to a real k8s cluster.
+5. NAMESPACE CREATION - right now I'm just `kubectl create namespace ...` but there HAS to be a way to do taht with this app of apps pattern... helm hooks maybe? I don't want to do terraform for just that... feels needless
 
 
 Ok so I just `helm repo add argo https://argoproj.github.io/argo-helm` and `helm install argocd argo/argo-cd` on koober
