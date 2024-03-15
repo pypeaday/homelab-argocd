@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/openfaas/faas-netes.git
-    path: openafaas
+    path: chart/openafaas
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
