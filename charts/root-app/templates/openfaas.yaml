@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openfaas-operator
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/openfaas/faas-netes.git
+    path: openafaas
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openfaas
+  syncPolicy:
+    automated:
+      selfHeal: true
