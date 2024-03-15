@@ -8,9 +8,15 @@ metadata:
 spec:
   project: default
   source:
+    helm:
+      parameters:
+        - name: operator.create
+          value: "true"
+        - name: functionNamespace
+          value: openfaas-fn
     repoURL: https://github.com/openfaas/faas-netes.git
-    path: chart/openafaas
-    targetRevision: master
+    path: chart/openfaas
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: openfaas
