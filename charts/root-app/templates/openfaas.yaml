@@ -10,6 +10,8 @@ spec:
   source:
     helm:
       parameters:
+        - name: generateBasicAuth
+          value: "true"
         - name: functionNamespace
           value: openfaas-fn
     repoURL: https://github.com/openfaas/faas-netes.git
