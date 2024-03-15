@@ -17,4 +17,3 @@ spec:
   syncPolicy:
     automated:
       selfHeal: true
-      pruneResources: true
