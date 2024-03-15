@@ -1,3 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openfaas-fn
+  labels:
+    name: openfaas-fn
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
