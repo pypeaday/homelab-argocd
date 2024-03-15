@@ -10,8 +10,6 @@ spec:
   source:
     helm:
       parameters:
-        - name: operator.create
-          value: "true"
         - name: functionNamespace
           value: openfaas-fn
     repoURL: https://github.com/openfaas/faas-netes.git
