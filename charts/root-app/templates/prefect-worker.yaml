@@ -22,7 +22,7 @@ spec:
         worker:
           apiConfig: server
           config:
-            workPool: default-agent-pool
+            workPool: foo-k8s-workpool
           serverApiConfig:
             apiUrl: "http://localhost:4200"
     repoURL: https://github.com/PrefectHQ/prefect-helm.git
