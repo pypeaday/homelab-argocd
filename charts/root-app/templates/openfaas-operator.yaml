@@ -17,8 +17,7 @@ spec:
   source:
     helm:
       values: |-
-        operator:
-          create: true
+        operator: true
       parameters:
         - name: generateBasicAuth
           value: "true"
