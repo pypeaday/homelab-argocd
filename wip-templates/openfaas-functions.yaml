@@ -1,3 +1,4 @@
+# Moved to wip-templats to delete it
 apiVersion: v1
 kind: Namespace
 metadata:

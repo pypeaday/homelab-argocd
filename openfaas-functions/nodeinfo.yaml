@@ -1,8 +1,11 @@
-apiVersion: openfaas.com/v1
-kind: Function
-metadata:
-  name: nodeinfo
-  namespace: openfaas-fn
-spec:
-  name: nodeinfo
-  image: functions/nodeinfo:latest
+# In order to use the Function Custom Resource Definition I need
+# Openfaas Pro/Standard which costs money... I don't see anyway to
+# install it without a license...
+# apiVersion: openfaas.com/v1
+# kind: Function
+# metadata:
+#   name: nodeinfo
+#   namespace: openfaas-fn
+# spec:
+#   name: nodeinfo
+#   image: functions/nodeinfo:latest
