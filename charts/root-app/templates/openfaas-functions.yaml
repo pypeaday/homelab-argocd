@@ -22,7 +22,5 @@ spec:
     path: openfaas-functions
     repoURL: https://github.com/pypeaday/argocd-helm.git
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
     automated:
       selfHeal: true
