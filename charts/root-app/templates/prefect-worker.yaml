@@ -25,7 +25,7 @@ spec:
             workPool: foo-k8s-workpool
           serverApiConfig:
             #apiUrl: "http://localhost:4200"
-            apiUrl: "prefect-server.perfect.svc.cluster.local"
+            apiUrl: "http://prefect-server.perfect.svc.cluster.local"
     repoURL: https://github.com/PrefectHQ/prefect-helm.git
     path: charts/prefect-worker
     targetRevision: HEAD
