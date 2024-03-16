@@ -23,8 +23,12 @@ spec:
   project: default
   source:
     helm:
-      values: |-
-        operator: true
+      #values: |-
+
+      # Cannot manage openfaas functions via `helm` without Function CRD that
+      # only comes with Openfaas pro/standard, which costs money. Not sure
+      # how people are doing this at home if they are
+      #  operator: true
       parameters:
         - name: generateBasicAuth
           value: "true"
