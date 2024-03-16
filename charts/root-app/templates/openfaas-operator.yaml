@@ -17,6 +17,10 @@ spec:
   source:
     helm:
       parameters:
+        - name: openfaasPro
+          value: "true"
+        - name: operator
+          value: "true"
         - name: generateBasicAuth
           value: "true"
         - name: functionNamespace
