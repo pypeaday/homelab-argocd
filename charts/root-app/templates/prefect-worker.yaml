@@ -22,9 +22,9 @@ spec:
         worker:
           apiConfig: server
           config:
-            workPool: foo
+            workPool: default-agent-pool
           serverApiConfig:
-            apiUrl: prefect-server.prefect.svc.cluster.local
+            apiUrl: "http://localhost:4200"
     repoURL: https://github.com/PrefectHQ/prefect-helm.git
     path: charts/prefect-worker
     targetRevision: HEAD
