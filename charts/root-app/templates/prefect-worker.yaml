@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: prefect-api-key
+  namespace: prefect
+type: Opaque
+data:
+  key: eW91ci1wcmVmZWN0LXNlbGYtaG9zdGVkLWNsb3VkLWFwaS1rZXk=
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prefect-worker
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    helm:
+      values: |-
+        worker:
+          apiConfig: server
+          config:
+            workPool: foo
+          serverApiConfig:
+            apiUrl: prefect-server.prefect.svc.cluster.local
+    repoURL: https://github.com/PrefectHQ/prefect-helm.git
+    path: charts/prefect-worker
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prefect
+  syncPolicy:
+    automated:
+      selfHeal: true
