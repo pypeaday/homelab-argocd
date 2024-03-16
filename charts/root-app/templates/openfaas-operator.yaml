@@ -18,7 +18,8 @@ spec:
     helm:
       values: |-
         openfaasPro: true
-        operator: true
+        operator:
+          create: true
       parameters:
         - name: generateBasicAuth
           value: "true"
