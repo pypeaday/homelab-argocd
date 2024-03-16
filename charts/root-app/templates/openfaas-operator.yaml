@@ -16,11 +16,10 @@ spec:
   project: default
   source:
     helm:
+      values: |-
+        openfaasPro: true
+        operator: true
       parameters:
-        - name: openfaasPro
-          value: "true"
-        - name: operator
-          value: "true"
         - name: generateBasicAuth
           value: "true"
         - name: functionNamespace
