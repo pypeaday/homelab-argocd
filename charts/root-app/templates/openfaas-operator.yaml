@@ -21,6 +21,8 @@ spec:
           value: "true"
         - name: functionNamespace
           value: openfaas-fn
+        - name: operator.create
+          value: "true"
     repoURL: https://github.com/openfaas/faas-netes.git
     path: chart/openfaas
     targetRevision: HEAD
