@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: terrakube
+  name: root-app-cockpit
   labels:
-    name: terrakube
+    name: root-app-cockpit
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
