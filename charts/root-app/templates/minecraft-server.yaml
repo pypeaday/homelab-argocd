@@ -36,6 +36,9 @@ spec:
   project: default
   source:
     helm:
+      parameters:
+        - name: minecraftServer.eula
+          value: "true"
     repoURL: https://github.com/itzg/minecraft-server-charts.git
     path: charts/minecraft
     targetRevision: HEAD
