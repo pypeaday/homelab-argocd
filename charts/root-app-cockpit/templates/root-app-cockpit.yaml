@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: terrakube
+  labels:
+    name: terrakube
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app-cockpit
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/pypeaday/argocd-helm.git
+    path: charts/root-app-cockpit/
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: root-app-cockpit
+    #namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
