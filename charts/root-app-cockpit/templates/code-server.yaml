@@ -10,6 +10,7 @@ spec:
       values: |-
         user:
           namespace: code-server
+          storageClassName: microk8s-hostpath
         ingress:
           enabled: false
         image:
