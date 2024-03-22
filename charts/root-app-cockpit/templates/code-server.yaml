@@ -12,7 +12,10 @@ spec:
           namespace: code-server
           storageClassName: microk8s-hostpath
         ingress:
-          enabled: false
+          enabled: true
+          hosts:
+            - host: code-server.cockpit.local
+
         image:
           repository: docker.io/nicpayne713/code-server
           pullPolicy: Always
