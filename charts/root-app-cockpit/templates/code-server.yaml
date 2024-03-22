@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: code-server
+  labels:
+    name: code-server
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: code-server
+  namespace: argocd
+spec:
+  project: default
+  source:
+    helm:
+      Values: |-
+        extraArts: ["--disable-telemetry"]
+    repoURL: https://github.com/pascaliske/helm-charts.git
+    path: charts/code-server
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: code-server
+  syncPolicy:
+    automated:
+      selfHeal: true
