@@ -16,10 +16,13 @@ spec:
   source:
     helm:
       values: |-
-        extraArgs: ["--disable-telemetry"]
-        secret:
-          password: SuperSecretPassword
-    repoURL: https://github.com/pascaliske/helm-charts.git
+        user:
+          namespace: code-server
+        ingress:
+          enabled: false
+        image:
+          repository: docker.io/nicpayne713/code-server
+    repoURL: https://github.com/pypeaday/helm-charts.git
     path: charts/code-server
     targetRevision: HEAD
   destination:
