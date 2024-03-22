@@ -16,7 +16,7 @@ spec:
   source:
     helm:
       values: |-
-        extraArts: ["--disable-telemetry"]
+        extraArgs: ["--disable-telemetry"]
         secret:
           password: SuperSecretPassword
     repoURL: https://github.com/pascaliske/helm-charts.git
