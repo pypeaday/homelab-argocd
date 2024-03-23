@@ -14,7 +14,7 @@ spec:
         ingress:
           enabled: true
           hosts:
-            - host: code-server.cockpit.local
+            - host: code-server.k8s.paynepride.com
 
         image:
           repository: docker.io/nicpayne713/code-server
