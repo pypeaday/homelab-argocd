@@ -19,10 +19,6 @@ spec:
         image:
           repository: docker.io/nicpayne713/code-server
           pullPolicy: Always
-
-        service:
-          type: ClusterIP
-          port: 8443
     repoURL: https://github.com/pypeaday/helm-charts.git
     path: charts/code-server
     targetRevision: HEAD
