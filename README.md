@@ -1,5 +1,9 @@
 # argocd-helm
 
+# Todo 
+
+rename this repo and restructure so that it's an argocd app of apps helm chart. this can maybe just be the thing that my homelab k8s repo does a helm release of... idk if that's a good pattern but with 1 Minnie of thought it feels nice... will explore this pattern
+
 ## Overview
 
 Prerequisites:
