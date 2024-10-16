@@ -3,15 +3,9 @@ name: root-app
 version: 1.0.2
 hooks:
   pre-install:
-    - name: create-namespace-root-app
-      manifest: |-
-        apiVersion: v1
-        kind: Namespace
-        metadata:
-          name: root-app
-    - name: create-namespace-foobar
-      manifest: |-
-        apiVersion: v1
-        kind: Namespace
-        metadata:
-          name: foobar
+  - name: create-namespace-root-app
+    manifest: |-
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name: root-app

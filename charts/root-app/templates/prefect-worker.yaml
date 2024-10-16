@@ -32,5 +32,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: prefect
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated:
       selfHeal: true
