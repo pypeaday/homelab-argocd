@@ -16,5 +16,7 @@ spec:
     namespace: root-app
     #namespace: default
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated:
       selfHeal: true
