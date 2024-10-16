@@ -17,8 +17,6 @@ kind: Application
 metadata:
   name: openfaas-operator
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:

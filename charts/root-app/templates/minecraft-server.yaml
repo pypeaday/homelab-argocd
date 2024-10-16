@@ -30,8 +30,6 @@ kind: Application
 metadata:
   name: minecraft
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:

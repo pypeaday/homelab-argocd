@@ -12,8 +12,6 @@ kind: Application
 metadata:
   name: prefect-worker
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
