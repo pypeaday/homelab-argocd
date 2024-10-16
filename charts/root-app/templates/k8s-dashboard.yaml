@@ -3,14 +3,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name:.kubernetes_dashboard
+  name: kubernetes-dashboard
   namespace: argocd
 spec:
   project: default
   source:
-    helm:
     repoURL: https://github.com/kubernetes/dashboard.git
-    path: charts.kubernetes_dashboard
+    path: charts/kubernetes-dashboard
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
