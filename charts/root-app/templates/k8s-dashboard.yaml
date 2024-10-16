@@ -1,21 +1,4 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: admin-user
-  namespace: kubernetes-dashboard
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: admin-user
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-  - kind: ServiceAccount
-    name: admin-user
-    namespace: kubernetes-dashboard
+
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -31,9 +14,30 @@ spec:
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: kubernetes-dashboard
+    namespace: "{{ .Values.kubernetes-dashboard.namespace }}"
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
     automated:
       selfHeal: true
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: "{{ .Values.kubernetes-dashboard.namespace }}"
+---
+# TODO: what to do about managing ClusterRoleBindings... should that be it's own
+# set of templtes in my app or apps? should it be apart of cluster deployment?
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: admin-user
+    namespace: "{{ .Values.kubernetes-dashboard.namespace }}"

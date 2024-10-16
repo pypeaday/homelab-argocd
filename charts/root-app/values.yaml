@@ -1,0 +1,3 @@
+kubernetes-dashboard:
+  enabled: true
+  namespace: "kubernetes-dashboard"
