@@ -1,52 +1,52 @@
 
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: kubernetes-dashboard
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: https://github.com/kubernetes/dashboard.git
-    path: charts/kubernetes-dashboard
-    targetRevision: HEAD
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: "{{ .Values.kubernetes_dashboard.namespace }}"
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      selfHeal: true
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: admin-user
-  namespace: "{{ .Values.kubernetes_dashboard.namespace }}"
----
-# TODO: what to do about managing ClusterRoleBindings... should that be it's own
-# set of templtes in my app or apps? should it be apart of cluster deployment?
-# TODO: also this should probably me k8s-dashboard-admin-user or something
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: admin-user
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-  - kind: ServiceAccount
-    name: admin-user
-    namespace: "{{ .Values.kubernetes_dashboard.namespace }}"
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: admin-user
-  namespace: "{{ .Values.kubernetes_dashboard.namespace }}"
-  annotations:
-    kubernetes.io/service-account.name: "admin-user"
-type: kubernetes.io/service-account-token
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kubernetes-dashboard
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://github.com/kubernetes/dashboard.git
+#     path: charts/kubernetes-dashboard
+#     targetRevision: HEAD
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: "{{ .Values.kubernetes_dashboard.namespace }}"
+#   syncPolicy:
+#     syncOptions:
+#       - CreateNamespace=true
+#     automated:
+#       selfHeal: true
+# ---
+# apiVersion: v1
+# kind: ServiceAccount
+# metadata:
+#   name: admin-user
+#   namespace: "{{ .Values.kubernetes_dashboard.namespace }}"
+# ---
+# # TODO: what to do about managing ClusterRoleBindings... should that be it's own
+# # set of templtes in my app or apps? should it be apart of cluster deployment?
+# # TODO: also this should probably me k8s-dashboard-admin-user or something
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: ClusterRoleBinding
+# metadata:
+#   name: admin-user
+# roleRef:
+#   apiGroup: rbac.authorization.k8s.io
+#   kind: ClusterRole
+#   name: cluster-admin
+# subjects:
+#   - kind: ServiceAccount
+#     name: admin-user
+#     namespace: "{{ .Values.kubernetes_dashboard.namespace }}"
+# ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: admin-user
+#   namespace: "{{ .Values.kubernetes_dashboard.namespace }}"
+#   annotations:
+#     kubernetes.io/service-account.name: "admin-user"
+# type: kubernetes.io/service-account-token
